@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Netflix Clone - Ultimate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div class="ambient-glow" id="ambientGlow"></div>
+    <header id="mainHeader">
+        <span class="iconify netflix-n-icon" data-icon="mdi:netflix"></span>
+        <div class="header-icons">
+            <span class="iconify header-icon-btn" data-icon="mdi:cast"></span>
+            <span class="iconify header-icon-btn" data-icon="mdi:download" onclick="window.location.href='downloads.html'"></span>
+            <span class="iconify header-icon-btn" data-icon="mdi:magnify" onclick="openGlobalSearch()"></span>
+            <img src="" alt="Profile" class="header-avatar" id="headerProfileAvatar" onclick="window.location.href='account.html'">
+        </div>
+    </header>
+    <div class="categories-scroll">
+        <div class="cat-tag" id="btnFilterSeries" onclick="setFeedFilter('tv')" data-i18n="catSeries">Series</div>
+        <div class="cat-tag" id="btnFilterMovies" onclick="setFeedFilter('movie')" data-i18n="catMovies">Movies</div>
+        <div class="cat-tag" onclick="openCategoriesSheet()" style="display: flex; align-items: center; gap: 5px;">
+            <span id="lblCurrentCategory" data-i18n="catCategories">Categories</span> <span class="iconify" data-icon="mdi:chevron-down"></span>
+        </div>
+        <div class="cat-tag" id="btnClearFilter" onclick="setFeedFilter('all')" style="display: none; border-color: var(--netflix-red); color: var(--netflix-red);">
+            <span class="iconify" data-icon="mdi:close"></span>
+        </div>
+    </div>
+    <div class="hero">
+        <img src="" alt="Hero Poster" class="hero-poster skeleton" id="heroPoster">
+        <div class="hero-fade-bottom"></div>
+        <div class="hero-content">
+            <div class="hero-tags" id="heroTags"></div>
+            <div class="hero-buttons">
+                <button class="hero-btn btn-play" id="heroPlayBtn">
+                    <span class="iconify" data-icon="mdi:play" style="font-size: 1.6rem;"></span> 
+                    <span class="i18n-text" data-i18n="btnPlay">Play</span>
+                </button>
+                <button class="hero-btn btn-list" id="heroListBtn" onclick="toggleMyList()">
+                    <span class="iconify" id="heroListIcon" data-icon="mdi:plus" style="font-size: 1.6rem;"></span> 
+                    <span class="i18n-text" id="heroListText" data-i18n="btnList">My List</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <section id="secContinue">
+        <h3 style="margin-bottom: 15px;" data-i18n="secContinue">Continue Watching</h3>
+        <div id="continueGrid" class="movie-scroll"></div>
+    </section>
+    <section id="secGamesRow">
+        <h3 data-i18n="secGamesHome">Mobile Games</h3>
+        <div id="homeGamesGrid" class="movie-scroll"></div>
+    </section>
+    <section>
+        <h3 id="lblTrending" data-i18n="secTrending">Trending Now</h3>
+        <div id="trendingGrid" class="movie-scroll"></div>
+    </section>
+    <section>
+        <h3 id="lblOriginals" data-i18n="secOriginals">Netflix Originals</h3>
+        <div id="originalsGrid" class="movie-scroll tall-posters"></div>
+    </section>
+    <section>
+        <h3 id="lblPopular" data-i18n="secPopular">Popular on Netflix</h3>
+        <div id="popularGrid" class="movie-scroll"></div>
+    </section>
+    <section>
+        <h3 id="lblAction" data-i18n="secAction">Action & Adventure</h3>
+        <div id="actionGrid" class="movie-scroll"></div>
+    </section>
+    <section>
+        <h3 id="lblComedy" data-i18n="secComedy">Laugh-Out-Loud Comedies</h3>
+        <div id="comedyGrid" class="movie-scroll"></div>
+    </section>
+    <div class="sheet-overlay" id="categoriesOverlay" onclick="closeCategoriesSheet()"></div>
+    <div class="bottom-sheet" id="categoriesBottomSheet">
+        <div class="sheet-header">
+            <h2 class="i18n-text" data-i18n="catCategories">Categories</h2>
+            <div class="close-sheet-btn" onclick="closeCategoriesSheet()">
+                <span class="iconify" data-icon="mdi:close"></span>
+            </div>
+        </div>
+        <div class="sheet-list" id="categoriesList">
+        </div>
+    </div>
+    <script src="js/core/config.js"></script>
+    <script src="js/core/i18n.js"></script>
+    <script src="js/core/utils.js"></script>
+    <script src="js/services/local-storage.js"></script>
+    <script src="js/services/tmdb.js"></script>
+    <script src="js/pages/home.js"></script>
+</body>
+</html>

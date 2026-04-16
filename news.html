@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Netflix Clone - Novidades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/news.css">
+</head>
+<body>
+    <div class="top-section">
+        <header class="news-header">
+            <h1 data-i18n="headerTitleNews">Novidades</h1>
+            <div class="header-icons">
+                <span class="iconify header-icon-btn" data-icon="mdi:cast"></span>
+                <img src="" alt="Profile" class="header-avatar" id="headerProfileAvatar" onclick="window.location.href='account.html'">
+            </div>
+        </header>
+        <div class="sub-nav">
+            <div class="pill active" id="pillComing" onclick="switchTab('coming')" data-i18n="pillComing">🍿 Em Breve</div>
+            <div class="pill inactive" id="pillTrending" onclick="switchTab('trending')" data-i18n="pillTrending">🔥 Em Alta</div>
+        </div>
+    </div>
+    <main class="news-feed" id="newsFeed">
+        <div class="spinner-container">
+            <div class="netflix-spinner"></div>
+        </div>
+    </main>
+    <script src="js/core/config.js" defer></script>
+    <script src="js/core/i18n.js" defer></script>
+    <script src="js/core/utils.js" defer></script>
+    <script src="js/services/local-storage.js" defer></script>
+    <script src="js/services/tmdb.js" defer></script>
+    <script src="js/pages/news.js" defer></script>
+</body>
+</html>

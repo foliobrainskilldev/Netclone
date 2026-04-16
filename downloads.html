@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Netflix Clone - Downloads</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/downloads.css">
+</head>
+<body>
+    <header class="downloads-header">
+        <div class="header-left">
+            <span class="iconify back-btn" data-icon="mdi:arrow-left" onclick="history.back()"></span>
+            <h1 class="i18n-text" data-i18n="titleDownloads">Meus Downloads</h1>
+        </div>
+        <div class="header-icons">
+            <span class="iconify header-icon-btn" data-icon="mdi:cast"></span>
+            <span class="iconify header-icon-btn" data-icon="mdi:magnify" onclick="window.location.href='index.html'"></span>
+        </div>
+    </header>
+    <main class="downloads-main">
+        <div class="smart-downloads" id="smartDownloads">
+            <div class="smart-left">
+                <span class="iconify" data-icon="mdi:cog"></span>
+                <span class="i18n-text" data-i18n="smartDownloads">Smart Downloads</span>
+            </div>
+            <span class="iconify" data-icon="mdi:chevron-right" style="font-size: 1.5rem; color: #888;"></span>
+        </div>
+        <div class="empty-state" id="emptyState">
+            <div class="empty-icon-circle">
+                <span class="iconify" data-icon="mdi:download"></span>
+            </div>
+            <h2 class="empty-title i18n-text" data-i18n="emptyTitle">Nunca fique sem a Netflix</h2>
+            <p class="empty-desc i18n-text" data-i18n="emptyDesc">Baixe séries e filmes para assistir offline de onde estiver.</p>
+            <a href="index.html" class="btn-find i18n-text" data-i18n="btnFind">Encontrar algo para baixar</a>
+        </div>
+        <div class="downloads-list" id="downloadsList">
+        </div>
+    </main>
+    <script src="js/core/config.js" defer></script>
+    <script src="js/core/i18n.js" defer></script>
+    <script src="js/core/utils.js" defer></script>
+    <script src="js/services/local-storage.js" defer></script>
+    <script src="js/pages/downloads.js" defer></script>
+</body>
+</html>

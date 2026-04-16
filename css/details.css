@@ -1,0 +1,152 @@
+.loading-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: var(--bg-black);
+    z-index: 5000; display: flex; justify-content: center; align-items: center;
+    transition: opacity 0.4s ease;
+}
+
+.details-header {
+    position: fixed; top: 0; width: 100%; height: 60px; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 4%; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    pointer-events: none;
+}
+
+.details-header .header-icon { font-size: 1.8rem; cursor: pointer; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); pointer-events: auto; }
+
+.trailer-container {
+    width: 100%; height: 40vh; min-height: 250px; position: relative; background-color: #111;
+}
+
+.trailer-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s; }
+
+.trailer-iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 5; }
+
+.play-overlay {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 60px; height: 60px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8);
+    background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center;
+    cursor: pointer; z-index: 10; transition: opacity 0.3s;
+}
+
+.play-overlay span { font-size: 2.5rem; margin-left: 5px; }
+
+.details-content { padding: 15px 4%; }
+
+.netflix-badge { display: flex; align-items: center; gap: 5px; font-size: 0.7rem; font-weight: bold; letter-spacing: 2px; color: #ccc; margin-bottom: 5px; }
+
+.netflix-badge span.iconify { color: var(--netflix-red); font-size: 1.2rem; }
+
+.movie-title { font-size: 1.8rem; font-family: 'Montserrat', sans-serif; font-weight: 800; margin-bottom: 10px; line-height: 1.1; }
+
+.metadata { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-gray); margin-bottom: 15px; font-weight: 500; }
+
+.match-text { color: #46d369; font-weight: bold; }
+
+.age-badge { background-color: #333; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; color: #fff; }
+
+.icon-badge { border: 1px solid var(--text-gray); padding: 1px 4px; border-radius: 3px; font-size: 0.7rem; }
+
+.main-buttons { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+
+.btn {
+    width: 100%; padding: 12px; border-radius: 4px; font-size: 1rem; font-weight: 600;
+    display: flex; justify-content: center; align-items: center; gap: 8px; border: none; cursor: pointer; transition: transform 0.2s;
+}
+
+.btn:active { transform: scale(0.98); }
+
+.btn-play { background-color: #fff; color: #000; }
+
+.btn-download { background-color: var(--card-bar-bg); color: #fff; }
+
+.btn span.iconify { font-size: 1.5rem; }
+
+.dl-spinner {
+    width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: #fff; border-radius: 50%; animation: spin 1s linear infinite;
+}
+
+.synopsis { font-size: 0.9rem; line-height: 1.4; margin-bottom: 10px; }
+
+.cast-info { font-size: 0.8rem; color: var(--text-gray); line-height: 1.4; margin-bottom: 20px; }
+
+.cast-info span { color: #fff; }
+
+.action-bar { display: flex; gap: 40px; margin-bottom: 30px; }
+
+.action-item { display: flex; flex-direction: column; align-items: center; gap: 5px; color: var(--text-gray); font-size: 0.7rem; font-weight: 500; cursor: pointer; }
+
+.action-item span.iconify { font-size: 1.8rem; color: #fff; }
+
+.tabs { border-top: 2px solid #333; display: flex; margin-bottom: 15px; }
+
+.tab { padding: 15px 0; margin-right: 20px; font-size: 0.9rem; font-weight: bold; color: var(--text-gray); position: relative; cursor: pointer; }
+
+.tab.active { color: #fff; }
+
+.tab.active::before { content: ''; position: absolute; top: -2px; left: 0; width: 100%; height: 4px; background-color: var(--netflix-red); border-radius: 2px; }
+
+.tab-section { display: none; }
+
+.tab-section.active { display: block; animation: fadeIn 0.4s ease; }
+
+.grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding-bottom: 40px; }
+
+.grid-item { border-radius: 4px; overflow: hidden; aspect-ratio: 2/3; background-color: #222; position: relative; cursor: pointer; }
+
+.grid-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.3s; }
+
+.grid-item .netflix-n { position: absolute; top: 4px; left: 4px; font-size: 1rem; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8)); }
+
+.season-selector { 
+    display: inline-flex; align-items: center; gap: 8px; background: var(--card-bar-bg); 
+    padding: 8px 16px; border-radius: 4px; font-size: 0.95rem; font-weight: bold; 
+    margin-bottom: 20px; cursor: pointer; 
+}
+
+.episode-wrapper { margin-bottom: 10px; padding: 10px; border-radius: 8px; transition: background-color 0.3s ease; }
+
+.episode-wrapper.selected { background-color: rgba(255, 255, 255, 0.1); }
+
+.episode-item { display: flex; align-items: center; gap: 15px; margin-bottom: 8px; cursor: pointer; }
+
+.ep-img-container { width: 130px; height: 73px; border-radius: 4px; overflow: hidden; position: relative; background: #333; flex-shrink: 0; }
+
+.ep-img-container img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); }
+
+.ep-play-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid #fff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); }
+
+.ep-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+.ep-title { font-size: 0.9rem; font-weight: bold; color: #fff; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+
+.ep-duration { font-size: 0.75rem; color: var(--text-gray); }
+
+.ep-overview { font-size: 0.8rem; color: var(--text-gray); line-height: 1.4; }
+
+.ep-download { display: flex; align-items: center; justify-content: center; gap: 5px; padding-left: 5px; cursor: pointer; min-width: 40px; }
+
+.ep-download .iconify { font-size: 1.6rem; color: #fff; }
+
+.ep-download .dl-spinner { width: 22px; height: 22px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 1s linear infinite; }
+
+.ep-dl-txt { font-size: 0.75rem; color: #fff; font-weight: bold; white-space: nowrap; display: none; }
+
+@keyframes popIcon {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+.anim-pop .iconify {
+    animation: popIcon 0.3s ease-in-out;
+}
+
+.action-item.rate-active .iconify {
+    color: var(--netflix-red) !important;
+}
+
+.action-item.rate-active {
+    color: var(--text-white);
+}

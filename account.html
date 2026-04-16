@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/mynetflix.css">
+</head>
+<body>
+    <div class="profile-top-section">
+        <header class="profile-header">
+            <span class="iconify back-btn" data-icon="mdi:arrow-left" onclick="window.location.href='index.html'"></span>
+            <h1 data-i18n="headerTitleProfile">Account</h1>
+        </header>
+    </div>
+    <main class="profile-main">
+        <div class="profile-container">
+            <img src="" alt="Avatar" class="profile-avatar-large" id="myProfileAvatarLarge">
+            <div class="edit-badge">
+                <span class="iconify" data-icon="mdi:pencil-outline"></span>
+            </div>
+        </div>
+        <div class="name-input-container">
+            <div class="name-input" id="myProfileNameInput" contenteditable="true" spellcheck="false"></div>
+        </div>
+        <div class="my-list-section">
+            <h3 data-i18n="myListTitle">My List</h3>
+            <div class="movie-scroll" id="myListGrid">
+            </div>
+        </div>
+        <div class="settings-group">
+            <div class="settings-item">
+                <span class="iconify settings-icon" data-icon="mdi:alert-octagon-outline"></span>
+                <div class="settings-text">
+                    <span class="settings-title i18n-text" data-i18n="matRating">Maturity Rating</span>
+                    <span class="settings-subtitle i18n-text" data-i18n="matRatingSub">No restrictions</span>
+                </div>
+                <span class="iconify settings-action" data-icon="mdi:chevron-right"></span>
+            </div>
+        </div>
+        <div class="settings-group">
+            <div class="settings-item">
+                <span class="iconify settings-icon" data-icon="mdi:translate"></span>
+                <div class="settings-text">
+                    <span class="settings-title i18n-text" data-i18n="dispLang">Display Language</span>
+                    <span class="settings-subtitle i18n-text" data-i18n="dispLangSub">Change the language of the text you see across all devices.</span>
+                </div>
+                <span class="iconify settings-action" data-icon="mdi:chevron-right"></span>
+            </div>
+            <div class="settings-item">
+                <span class="iconify settings-icon" data-icon="mdi:message-processing-outline"></span>
+                <div class="settings-text">
+                    <span class="settings-title i18n-text" data-i18n="audioSub">Audio & Subtitle Languages</span>
+                    <span class="settings-subtitle i18n-text" data-i18n="audioSubDesc">Choose the languages you like to watch in.</span>
+                </div>
+                <span class="iconify settings-action" data-icon="mdi:chevron-right"></span>
+            </div>
+            <div class="settings-item">
+                <span class="iconify settings-icon" data-icon="mdi:format-font"></span>
+                <div class="settings-text">
+                    <span class="settings-title i18n-text" data-i18n="subApp">Subtitle Appearance</span>
+                    <span class="settings-subtitle i18n-text" data-i18n="subAppDesc">Change the way subtitles appear on devices.</span>
+                </div>
+                <span class="iconify settings-action" data-icon="mdi:chevron-right"></span>
+            </div>
+        </div>
+        <div class="settings-group">
+            <div class="settings-item" onclick="toggleSwitchSettings('toggleNext')">
+                <span class="iconify settings-icon" data-icon="mdi:play-box-outline"></span>
+                <div class="settings-text">
+                    <span class="settings-title i18n-text" data-i18n="autoNext">Autoplay Next Episode</span>
+                    <span class="settings-subtitle i18n-text" data-i18n="onAll">On all devices</span>
+                </div>
+                <div class="toggle-switch" id="toggleNext">
+                    <div class="toggle-knob"></div>
+                </div>
+            </div>
+            <div class="settings-item" onclick="toggleSwitchSettings('togglePreviews')">
+                <span class="iconify settings-icon" data-icon="mdi:autorenew"></span>
+                <div class="settings-text">
+                    <span class="settings-title i18n-text" data-i18n="autoPrev">Autoplay Previews</span>
+                    <span class="settings-subtitle i18n-text" data-i18n="onAll2">On all devices</span>
+                </div>
+                <div class="toggle-switch active" id="togglePreviews">
+                    <div class="toggle-knob"></div>
+                </div>
+            </div>
+        </div>
+        <div class="switch-profile-btn" onclick="window.location.href='profile.html'">
+            <span class="iconify" data-icon="mdi:swap-horizontal"></span>
+            <span class="i18n-text" data-i18n="btnChangeProfile">Switch Profile</span>
+        </div>
+    </main>
+    <script src="js/core/config.js" defer></script>
+    <script src="js/core/i18n.js" defer></script>
+    <script src="js/core/utils.js" defer></script>
+    <script src="js/services/local-storage.js" defer></script>
+    <script src="js/pages/mynetflix.js" defer></script>
+</body>
+</html>

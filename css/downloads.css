@@ -1,0 +1,81 @@
+.downloads-header {
+    position: fixed; top: 0; width: 100%; height: 60px; z-index: 1000;
+    padding: 0 4%; background-color: var(--bg-black);
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.header-left { display: flex; align-items: center; gap: 15px; }
+
+.downloads-header h1 { font-size: 1.3rem; font-family: 'Montserrat', sans-serif; font-weight: 700; }
+
+.downloads-main { margin-top: 80px; padding: 0 4%; min-height: 70vh; display: flex; flex-direction: column; }
+
+.empty-state {
+    flex: 1; display: none; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; animation: fadeIn 0.5s ease; margin-top: 10vh;
+}
+
+.empty-icon-circle {
+    width: 120px; height: 120px; border-radius: 50%; background-color: #222;
+    display: flex; justify-content: center; align-items: center; margin-bottom: 25px;
+}
+
+.empty-icon-circle span { font-size: 4rem; color: #555; }
+
+.empty-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+
+.empty-desc { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 30px; max-width: 80%; line-height: 1.4; }
+
+.btn-find {
+    background-color: #fff; color: #000; padding: 12px 24px; border-radius: 4px;
+    font-weight: 700; font-size: 1rem; cursor: pointer; text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.btn-find:active { transform: scale(0.95); }
+
+.downloads-list { display: none; flex-direction: column; gap: 15px; animation: fadeIn 0.5s ease; }
+
+.download-item {
+    display: flex; align-items: center; background-color: var(--card-bg);
+    border-radius: 8px; overflow: hidden; height: 90px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.download-item.removing { transform: translateX(100%); opacity: 0; }
+
+.dl-img { width: 140px; height: 100%; position: relative; cursor: pointer; }
+
+.dl-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.dl-play-overlay {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.5); border-radius: 50%; border: 1px solid #fff;
+    width: 35px; height: 35px; display: flex; justify-content: center; align-items: center;
+}
+
+.dl-play-overlay span { font-size: 1.5rem; color: #fff; margin-left: 3px; }
+
+.dl-info { flex: 1; padding: 10px 15px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+
+.dl-title { font-size: 1rem; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 5px; }
+
+.dl-meta { font-size: 0.75rem; color: var(--text-gray); display: flex; align-items: center; gap: 8px; }
+
+.dl-badge { border: 1px solid var(--text-gray); padding: 1px 4px; border-radius: 3px; font-size: 0.65rem; }
+
+.dl-actions { padding: 0 15px; display: flex; align-items: center; }
+
+.btn-delete { color: #888; font-size: 1.8rem; cursor: pointer; transition: color 0.2s; }
+
+.btn-delete:active { color: var(--netflix-red); transform: scale(0.9); }
+
+.smart-downloads {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 0; margin-bottom: 10px; border-bottom: 1px solid #333; cursor: pointer;
+}
+
+.smart-left { display: flex; align-items: center; gap: 12px; color: #ccc; font-size: 0.9rem; font-weight: 600; }
+
+.smart-left span.iconify { font-size: 1.4rem; color: #0071eb; }

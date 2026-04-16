@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Netflix Clone - Jogos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/games.css">
+</head>
+<body>
+    <header class="games-header">
+        <h1 class="i18n-text" data-i18n="headerTitleGames">Jogos</h1>
+        <div class="header-icons" onclick="openGlobalSearch()">
+            <span class="iconify header-icon-btn" data-icon="mdi:magnify"></span>
+        </div>
+    </header>
+    <div class="hero-games">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Hero BG" class="hero-bg-games skeleton" id="heroBg">
+        <div class="hero-icon-container">
+            <span class="iconify netflix-n-hero" id="heroNIcon" data-icon="mdi:netflix" style="display: none;"></span>
+            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="App Icon" class="hero-app-icon skeleton" id="heroAppIcon" onclick="if(window.heroGameId) window.location.href=`game-details.html?id=${window.heroGameId}`">
+        </div>
+        <div class="hero-content-games">
+            <h2 class="hero-title-games" id="heroTitle">
+                <div class="netflix-spinner"></div>
+            </h2>
+            <div class="hero-tags-games" id="heroTags"></div>
+        </div>
+    </div>
+    <section>
+        <h3 class="i18n-text" data-i18n="secRecent">Lançamentos Recentes</h3>
+        <div id="recentGrid" class="movie-scroll"></div>
+    </section>
+    <section>
+        <h3 class="i18n-text" data-i18n="secPopular">Jogos Populares</h3>
+        <div id="popularGrid" class="movie-scroll"></div>
+    </section>
+    <section>
+        <h3 class="i18n-text" data-i18n="secAction">Ação e Aventura</h3>
+        <div id="actionGrid" class="movie-scroll"></div>
+    </section>
+    <script src="js/core/config.js" defer></script>
+    <script src="js/core/i18n.js" defer></script>
+    <script src="js/core/utils.js" defer></script>
+    <script src="js/services/local-storage.js" defer></script>
+    <script src="js/services/tmdb.js" defer></script>
+    <script src="js/pages/games.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Netflix Clone - Detalhes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/details.css">
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="netflix-spinner"></div>
+    </div>
+    <header class="details-header">
+        <span class="iconify header-icon" data-icon="mdi:arrow-left" onclick="history.back()"></span>
+    </header>
+    <div class="trailer-container" id="trailerContainer">
+        <img id="backdropImg" src="" alt="Trailer">
+        <div class="play-overlay" id="playBtnOverlay" onclick="playTrailer()"><span class="iconify" data-icon="mdi:play"></span></div>
+    </div>
+    <div class="details-content">
+        <div class="netflix-badge">
+            <span class="iconify" data-icon="logos:netflix-icon"></span> 
+            <span id="mediaTypeLabel" class="i18n-text" data-i18n="lblMovie">MOVIE</span>
+        </div>
+        <h1 class="movie-title" id="title">Loading...</h1>
+        <div class="metadata">
+            <span class="match-text" id="matchScore">95% match</span>
+            <span id="year">----</span>
+            <span class="age-badge" id="ageRating">16+</span>
+            <span id="duration">--h --m</span>
+            <span class="icon-badge">HD</span>
+            <span class="iconify" data-icon="mdi:message-processing-outline"></span>
+        </div>
+        <div class="main-buttons">
+            <button class="btn btn-play" onclick="playTrailer()">
+                <span class="iconify" data-icon="mdi:play"></span> 
+                <span class="i18n-text" data-i18n="btnPlay">Play</span>
+            </button>
+            <button class="btn btn-download" id="downloadBtn" onclick="startMainDownload()">
+                <span class="iconify" id="downloadIcon" data-icon="mdi:download"></span> 
+                <span class="i18n-text" id="downloadText" data-i18n="btnDownload">Download</span>
+            </button>
+        </div>
+        <p class="synopsis" id="synopsis">Loading details...</p>
+        <div class="cast-info">
+            <p><span class="i18n-text" data-i18n="lblCast">Cast: </span><span id="cast">...</span></p>
+            <p><span class="i18n-text" data-i18n="lblDirector">Director: </span><span id="director">...</span></p>
+        </div>
+        <div class="action-bar">
+            <div class="action-item" id="myListBtn" onclick="toggleMyListDetails()">
+                <span class="iconify" id="myListIcon" data-icon="mdi:plus"></span> 
+                <span class="i18n-text" id="myListText" data-i18n="secMyList">My List</span>
+            </div>
+            <div class="action-item" id="rateBtn" onclick="toggleRate()">
+                <span class="iconify" id="rateIcon" data-icon="mdi:thumb-up-outline"></span> 
+                <span class="i18n-text" data-i18n="secRate">Rate</span>
+            </div>
+            <div class="action-item" onclick="showToastMessage('Link copiado!')">
+                <span class="iconify" data-icon="mdi:share-variant-outline"></span> 
+                <span class="i18n-text" data-i18n="secShare">Share</span>
+            </div>
+        </div>
+        <div class="tabs" id="tabsContainer">
+            <div class="tab i18n-text" id="tabEpisodes" data-i18n="tabEpisodes" style="display: none;" onclick="switchTab('tabEpisodes', 'episodesSection')">Episodes</div>
+            <div class="tab active i18n-text" id="tabMore" data-i18n="tabMore" onclick="switchTab('tabMore', 'moreSection')">More Like This</div>
+        </div>
+        <div id="episodesSection" class="tab-section">
+            <div class="season-selector" onclick="openSeasonSheet()">
+                <span id="currentSeasonLabel">Season 1</span>
+                <span class="iconify" data-icon="mdi:menu-down" style="font-size: 1.2rem;"></span>
+            </div>
+            <div id="episodeListContainer">
+                <p style="color: #888; text-align: center; margin-top: 20px;">Loading episodes...</p>
+            </div>
+        </div>
+        <div id="moreSection" class="tab-section active">
+            <div class="grid-container" id="similarGrid"></div>
+        </div>
+    </div>
+    <div class="sheet-overlay" id="sheetOverlay" onclick="closeSeasonSheet()"></div>
+    <div class="bottom-sheet" id="seasonBottomSheet">
+        <div class="sheet-header">
+            <h2 class="i18n-text" data-i18n="lblSeasonSelect">Seasons</h2>
+            <div class="close-sheet-btn" onclick="closeSeasonSheet()">
+                <span class="iconify" data-icon="mdi:close"></span>
+            </div>
+        </div>
+        <div class="sheet-list" id="seasonList">
+        </div>
+    </div>
+    <script src="js/core/config.js" defer></script>
+    <script src="js/core/i18n.js" defer></script>
+    <script src="js/core/utils.js" defer></script>
+    <script src="js/services/local-storage.js" defer></script>
+    <script src="js/services/tmdb.js" defer></script>
+    <script src="js/pages/details.js" defer></script>
+</body>
+</html>

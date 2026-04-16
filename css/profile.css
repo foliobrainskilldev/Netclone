@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-black);
+}
+
+.profile-select-header {
+    width: 100%;
+    padding: 20px 4%;
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 10;
+}
+
+.netflix-logo {
+    font-size: 2.8rem;
+    color: var(--netflix-red);
+}
+
+.profile-select-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4%;
+    animation: fadeInProfile 0.8s ease-out forwards;
+}
+
+@keyframes fadeInProfile {
+    from { opacity: 0; transform: scale(1.05); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.profile-select-main h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.profiles-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2vw;
+    max-width: 800px;
+}
+
+.profile-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: 10vw;
+    min-width: 90px;
+    max-width: 150px;
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.profile-item:active { transform: scale(0.95); }
+
+.avatar-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 3px solid transparent;
+    transition: border-color 0.3s ease;
+    position: relative;
+}
+
+.avatar-box img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+
+.profile-name {
+    margin-top: 10px;
+    color: var(--text-gray);
+    font-size: 1rem;
+    text-align: center;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+@media (hover: hover) {
+    .profile-item:hover .avatar-box { border-color: var(--text-white); }
+    .profile-item:hover .profile-name { color: var(--text-white); }
+}
+
+.add-profile .avatar-box {
+    display: flex; justify-content: center; align-items: center;
+    font-size: 3.5rem; color: var(--text-gray); border: none;
+}
+
+@media (hover: hover) {
+    .add-profile:hover .avatar-box { background-color: #fff; color: var(--bg-black); }
+}
+
+.manage-profiles-btn {
+    margin-top: 50px; background: transparent; color: var(--text-gray);
+    border: 1px solid var(--text-gray); padding: 10px 24px;
+    font-size: 1.1rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 2px; cursor: pointer; transition: all 0.3s ease;
+}
+
+.manage-profiles-btn:hover {
+    color: var(--text-white); border-color: var(--text-white);
+}
+
+.loading-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: var(--bg-black); z-index: 2000;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+
+.loading-overlay.active { opacity: 1; pointer-events: auto; }
+
+@media (max-width: 600px) {
+    .profiles-container { gap: 4vw; }
+    .profile-item { width: 35vw; max-width: 120px; margin-bottom: 10px; }
+    .profile-select-main h1 { font-size: 1.5rem; margin-bottom: 20px; }
+    .manage-profiles-btn { margin-top: 30px; font-size: 0.9rem; padding: 8px 16px; }
+    .profile-select-header { justify-content: center; } 
+}

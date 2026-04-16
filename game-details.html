@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Netflix Clone - Detalhes do Jogo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/game-details.css">
+</head>
+<body>
+    <div class="top-bar-game">
+        <span class="iconify back-arrow-game" data-icon="mdi:arrow-left" onclick="history.back()"></span>
+    </div>
+    <div class="hero-banner-game skeleton" id="bannerContainer">
+        <img id="bg-img" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Background">
+        <div class="gradient-overlay-game"></div>
+    </div>
+    <div class="game-header-top">
+        <div class="app-icon-wrapper skeleton" id="iconContainer">
+            <span class="iconify netflix-n-badge" id="n-badge" data-icon="mdi:netflix"></span>
+            <img id="icon-img" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Icon">
+        </div>
+        <h1 class="game-title-main" id="game-title">
+            <div class="netflix-spinner"></div>
+        </h1>
+        <div class="game-meta-info" id="game-meta">
+            <span id="game-genre">--</span>
+            <span class="age-badge">12+</span>
+            <span class="installed-badge">
+                <span class="iconify" data-icon="mdi:check-circle"></span> <span class="i18n-text" data-i18n="badgeInstalled">Instalado</span>
+            </span>
+        </div>
+    </div>
+    <div class="actions-row">
+        <button class="btn-play-game i18n-text" data-i18n="btnPlay">Jogar</button>
+        <div class="share-btn">
+            <span class="iconify" data-icon="mdi:share-variant-outline"></span>
+            <span class="i18n-text" data-i18n="btnShare">Recomendar</span>
+        </div>
+    </div>
+    <div class="description-section">
+        <p class="synopsis" id="game-synopsis"></p>
+        <p class="modes-text i18n-text" id="modes-text" data-i18n="lblModes">
+            <strong>Modos:</strong> Um Jogador
+        </p>
+    </div>
+    <h3 class="section-title i18n-text" id="screenshots-title" style="display: none;" data-i18n="secScreenshots">Capturas de tela</h3>
+    <div class="scroll-row" id="screenshotsList"></div>
+    <h3 class="section-title i18n-text" data-i18n="secRecommendations">Recomendações</h3>
+    <div class="scroll-row" id="similarList"></div>
+    <div class="image-modal" id="imageModal" onclick="closeImageViewer()">
+        <span class="iconify close-image-btn" data-icon="mdi:close"></span>
+        <img id="fullScreenImg" src="" alt="Screenshot Fullscreen">
+    </div>
+    <script src="js/core/config.js" defer></script>
+    <script src="js/core/i18n.js" defer></script>
+    <script src="js/core/utils.js" defer></script>
+    <script src="js/services/tmdb.js" defer></script>
+    <script src="js/pages/game-details.js" defer></script>
+</body>
+</html>
